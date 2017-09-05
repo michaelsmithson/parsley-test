@@ -3,7 +3,9 @@
     </head>
     <body>
 		<form method="post" id="form" action="#" data-parsley-validate="" data-parsley-trigger="focusout">
-			<input id="date"></input>
+            <input id="date"></input>
+            
+            <input data-parsley-pattern="02[\d\-]+"</input>
 
 			<input type="submit" class="btn btn-default" value="validate">
 		</form>
