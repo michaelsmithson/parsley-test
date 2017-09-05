@@ -1,0 +1,11 @@
+{
+  "name": "parsley-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Michael Smithson <michael.smithson@aranzmedical.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "parsleyjs": "^2.7.2"
+  }
+}
