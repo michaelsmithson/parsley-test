@@ -3,7 +3,7 @@
     </head>
     <body>
 		<form method="post" id="form" action="#">
-            <input id="date"></input>
+            <input id="date" data-parsley-required-message="Date is required"></input>
 
             <input data-parsley-pattern="02[\d\-\s]+" />
 
@@ -14,7 +14,7 @@
         <script src="node_modules/parsleyjs/dist/parsley.js"></script>
         <script src="jquery.date-dropdown.js"></script>
         <script>
- 
+
 			$(function() {
 				$("#date").dateDropdowns({
 					required: true,
