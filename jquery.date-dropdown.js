@@ -55,7 +55,7 @@
                 this.buildDropdowns();
                 this.attachDropdowns();
                 this.bindChangeEvent();
-    
+
                 if (this.config.defaultDate) {
                     this.populateDefaultDate();
                 }
@@ -184,6 +184,8 @@
                         break;
                 }
     
+                // ensure the hidden input is after the dropdowns in the markup
+                $element.append(this.$element);
                 return true;
             },
     
