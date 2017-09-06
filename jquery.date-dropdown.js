@@ -113,7 +113,7 @@
                         this.$element.attr('name', this.config.submitFieldName);
                     }
 
-                    this.$element.attr('required', "required")
+                    this.$element.attr('required', true)
     
                     wrapper = this.$element.parent();
     
