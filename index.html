@@ -2,7 +2,7 @@
     <head>
     </head>
     <body>
-		<form method="post" id="form" action="#" data-parsley-validate="" data-parsley-trigger="focusout">
+		<form method="post" id="form" action="#">
             <input id="date"></input>
 
             <input data-parsley-pattern="02[\d\-\s]+" />
@@ -14,6 +14,7 @@
         <script src="node_modules/parsleyjs/dist/parsley.js"></script>
         <script src="jquery.date-dropdown.js"></script>
         <script>
+ 
 			$(function() {
 				$("#date").dateDropdowns({
 					required: true,
@@ -25,7 +26,12 @@
 					monthFormat: "short"
 					// monthSuffixes: false
 				});
-			});
+            });
+            // TODO add the focusOut here as well
+            $("#form").parsley({
+                excluded: 'input[type=button], input[type=submit], input[type=reset]',
+                inputs: 'input, textarea, select, input[type=hidden]',
+            });
         </script>
     </body>
 </html>

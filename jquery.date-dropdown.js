@@ -112,6 +112,8 @@
                     } else if (customFieldNameProvided) {
                         this.$element.attr('name', this.config.submitFieldName);
                     }
+
+                    this.$element.attr('required', "required")
     
                     wrapper = this.$element.parent();
     
@@ -310,7 +312,7 @@
                 return $('<select></select>', {
                     class: classString,
                     name: this.config.submitFieldName + '_[' + type + ']',
-                    required: this.config.required
+                    // required: this.config.required
                 });
             },
     
