@@ -7,6 +7,8 @@
 
             <input data-parsley-pattern="02[\d\-\s]+" />
 
+            <input type="text" required />
+
 			<input type="submit" class="btn btn-default" value="validate">
 		</form>
 
@@ -31,6 +33,14 @@
             $("#form").parsley({
                 excluded: 'input[type=button], input[type=submit], input[type=reset]',
                 inputs: 'input, textarea, select, input[type=hidden]',
+                classHandler: function (field) {
+                    // Check the parent element, and if it is the date-dropdowns div, then stick the error on that
+                    var parent = field.element.parentElement;
+                    if(parent && parent.tagName == "DIV" && parent.className == "date-dropdowns"){
+                        return $(parent);
+                    }
+                    return field; 
+                }
             });
         </script>
     </body>
