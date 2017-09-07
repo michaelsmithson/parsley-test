@@ -5,10 +5,19 @@
 		<form method="post" id="form" action="#">
             <input id="date" data-parsley-required-message="Date is required"></input>
 
-            <input data-parsley-pattern="02[\d\-\s]+" />
+            <div>
+                Pattern
+                <input data-parsley-pattern="02[\d\-\s]+" />
+            </div>
+            <div>
+                Required text
 
-            <input type="text" required />
-
+                <input type="text" required />
+            </div>
+            <div>
+                Credit card
+                <input type="text" required data-parsley-creditcard="" />
+            </div>
 			<input type="submit" class="btn btn-default" value="validate">
 		</form>
 
@@ -16,6 +25,15 @@
         <script src="node_modules/parsleyjs/dist/parsley.js"></script>
         <script src="jquery.date-dropdown.js"></script>
         <script>
+
+            window.Parsley.addValidator('creditcard', {
+                validateString: function(value) {
+                    return false;
+                },
+                messages: {
+                    en: 'Credit card is not valid',
+                }
+            });
 
 			$(function() {
 				$("#date").dateDropdowns({
