@@ -18,6 +18,12 @@
                 Credit card
                 <input type="text" required data-parsley-creditcard="" />
             </div>
+
+            <div>
+                    Mobile <input id="MobilePhone" type="text" data-parsley-validate-if-empty="" data-parsley-requiredphone="HomePhone" />
+                    Home <input id="HomePhone" type="text" />
+            </div>
+
 			<input type="submit" class="btn btn-default" value="validate">
 		</form>
 
@@ -34,6 +40,21 @@
                     en: 'Credit card is not valid',
                 }
             });
+
+            window.Parsley.addValidator('requiredphone', {
+                validateString: function(value, otherId) {
+                    if (value && value.length > 0 ){
+                      return true;
+                    }
+                    // find the other
+                    var otherVal = $('#' + otherId).val();
+                    var valid = !!otherVal && otherVal.length > 0;
+                    return valid;
+                },
+                messages: {
+                    en: 'Must provide either a mobile or home phone number',
+                }
+            });            
 
 			$(function() {
 				$("#date").dateDropdowns({
